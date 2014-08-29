@@ -1,4 +1,4 @@
-=== Example Repository (Portfolio Website)
+# Example Repository (Portfolio Website)
 
 For CRCP 3320 Postmodern Software Design. An example repo.
 
