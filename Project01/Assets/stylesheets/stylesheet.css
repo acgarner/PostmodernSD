@@ -5,30 +5,35 @@ body{
 	}
 
 	.TopBox {
-	position: absolute;
+	background-color:#CCCCCC;
+	
+	position: relative;
     top: 0;
-    left: 0;
-    width: 200px;
-    height: 200px;
+    left: 20;
+    width: 960px;
+    height: 70px;
 	}
 
 	.BlackBox {
-	position: absolute;
+	background-color:#000;
+	position: relative;
     top: 0;
-    left: 0;
-    width: 200px;
+    left: 20;
+    width: 960px;
     height: 200px;
 	}
 
 	.WhiteBox {
-	position: absolute;
+	position: relative;
+	background-color:#FFF;
     top: 0;
     left: 0;
     width: 200px;
     height: 200px;
 	}
 	.LightGrayBox {
-	position: absolute;
+	background-color:#F0F0F0;
+	position: relative;
     top: 0;
     left: 0;
     width: 200px;
