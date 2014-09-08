@@ -69,6 +69,7 @@ body{
     width: 200px;
     height: 70px;
 	}
+
 	.Container4 {
 	background-color:#FFFFFF;
 	position: absolute;
@@ -97,16 +98,29 @@ body{
 	}
 	h2{
 		color:#FFF; 
+
+
 		position: relative;
 		font-family:arial; 
 		font-weight:normal;
 	}
+	h2:hover{
+		color:#CCCCCC;
+	}
+
 	h3{
 		color:#000; 
 		position: relative;
 		font-family:arial; 
 		font-weight:normal;
 	}
-	h4{}
-	h5{}
+	h4{
+			text-align: left;
+			font-size:12px;
+	}
+	h5{
+			text-align: center;
+	}
 	h6{}
+	h7{}
+	h8{}
