@@ -90,13 +90,18 @@ body{
 
 	h1{
 		color:#000; 
+		position: relative;
 		font-family:arial; 
 		font-weight:normal;
 		
 	}
-h2{
-		color:F0F0F0;
-		font-family:arial;
+	h2{
+		color:#000; 
+		position: relative;
+		font-family:arial; 
 		font-weight:normal;
-
 	}
+	h3{}
+	h4{}
+	h5{}
+	h6{}
