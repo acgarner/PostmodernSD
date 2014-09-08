@@ -9,4 +9,29 @@ body{
     top: 0;
     left: 0;
     width: 200px;
+    height: 200px;
 	}
+
+	.BlackBox {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+	}
+
+	.WhiteBox {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+	}
+	.LightGrayBox {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+	}
+	
