@@ -116,11 +116,17 @@ body{
 	}
 	h4{
 			text-align: left;
-			font-size:12px;
+			font-size:14px;
 	}
 	h5{
 			text-align: center;
 	}
-	h6{}
+	h6{
+		text-align: left;
+			font-size:14px;
+	}
 	h7{}
-	h8{}
+	a{text-align: left;
+			font-size:15px;
+
+}
