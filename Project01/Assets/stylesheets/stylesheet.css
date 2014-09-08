@@ -96,12 +96,17 @@ body{
 		
 	}
 	h2{
+		color:#FFF; 
+		position: relative;
+		font-family:arial; 
+		font-weight:normal;
+	}
+	h3{
 		color:#000; 
 		position: relative;
 		font-family:arial; 
 		font-weight:normal;
 	}
-	h3{}
 	h4{}
 	h5{}
 	h6{}
