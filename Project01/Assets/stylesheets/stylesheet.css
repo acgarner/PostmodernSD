@@ -73,13 +73,13 @@ body{
 	}
 
 	.Sidebox {
-	background-color:#000;
+	background-color:#CCCCCC;
 	position: absolute;
     top: 220;
-    left: 240;
-    width: 200px;
+    left: 440;
+    width: 10px;
     height: 70px;	}
-	
+
 	h1{
 		color:#000; 
 		font-family:arial; 
