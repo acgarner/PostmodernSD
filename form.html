@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+
+<script type="text/javascript" language="javascript">
+
+//only when the document is ready 
+var formNode = document.getElementById("myForm");
+formNode.addEventListener("sibmit", function(event) {
+	return false;
+});
+
+</script>
+
+</head>
+
+<body>
+
+<form name= "myForm" id="myForm" action="http://google.com" method="GET"> 
+	<input type ="text" name = "sport" />
+	<input type="submit" />
+
+</form>
+
+</body>
+</html>
