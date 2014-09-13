@@ -8,27 +8,29 @@
 function validateForm(event) {
   alert('Form is being submitted. Delete this line from the js.');
   
-  event.preventDefault(); // don't submit the form, because we're going to work with data on the client only.
+   // don't submit the form, because we're going to work with data on the client only.
+  document.getElementsByClassName("errors") [0].style.display = "";
+  event.preventDefault();
   var formIsValid = true;
 
-  //How do I link the html input fname to the javascript to be able to manipulate it?
-  var x = event.createElement("fname");
-  element.id = 'fname';
-  var x = event.getElementById('fname');
- 
- // How do I correctly link the first name, last name, and favorite food into 1 form? 
-  // -Shouldn't
+  if(document.getElementsByName("fname") [0].value == "") {
+    formIsValid = false;
+    alert('testing')
+  }
 
- /*if(event.fname.value== "")
-  {
+  if(document.getElementsByName("lname") [0].value == "") {
     formIsValid = false;
   }
-  */
+
+  if(document.getElementsByName("fav_food") [0].value == "") {
+    formIsValid = false;
+  }
+  
 
   // TODO
   // Inspect the values of each input element to make sure they are not blank.
   // If any of the fields are blank, formIsValid should be set to false.
-  
+  /*
   if(x==null){
   	formIsValid = false;
     alert('testing123')
@@ -46,7 +48,7 @@ function validateForm(event) {
   }
   alert('You have not input all of the necessary information!')
   } 
-
+*/ 
   // AND the error message node in the dom should describe the errors.
   // eg: First name is blank. Favorite food is blank.
   if (!formIsValid) {
@@ -54,7 +56,7 @@ function validateForm(event) {
   } else {
     // TODO update the h1 span contents. Hint: see element.innerHTML
     // having trouble making sense of this: https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML
-    
+
     fullName = fname + " " +lname;
     fav_food = favoriteFood;
   }
@@ -66,8 +68,8 @@ alert('testing123')
   
   // Get the form element, so we can manipulate it.
   var formNode = document.getElementById("myForm");
-  // When the form is submitted, execute the following function.
-  formNode.addEventListener("submit", validateForm, false);
+ 
+  formNode.addEventListener("submit", validateForm, false); // When the form is submitted, execute the following function.
   // Notice how the identifier `validateForm` itself is passed, not the
   // return value from calling the `validateForm` function.
   // eg. validateForm vs validateForm().
