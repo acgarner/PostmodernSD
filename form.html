@@ -8,9 +8,9 @@
 function validateForm(event) {
   alert('Form is being submitted. Delete this line from the js.');
   
-   // don't submit the form, because we're going to work with data on the client only.
   document.getElementsByClassName("errors") [0].style.display = "";
-  event.preventDefault();
+  
+  event.preventDefault(); // don't submit the form, because we're going to work with data on the client only.
   var formIsValid = true;
 
   // Inspect the values of each input element to make sure they are not blank.
@@ -28,7 +28,6 @@ function validateForm(event) {
     formIsValid = false;
   }
   
-
   
   // AND the error message node in the dom should describe the errors.
   // eg: First name is blank. Favorite food is blank.
@@ -38,8 +37,20 @@ function validateForm(event) {
     // TODO update the h1 span contents. Hint: see element.innerHTML
     // having trouble making sense of this: https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML
 
-    fullName = fname + " " +lname;
-    fav_food = favoriteFood;
+    document.getElementById("fullName").innerHTML=fname + " " + lname;  // trying to figure out how to update the fullName span
+
+
+    //var fullName = element.innerHTML;
+    //var favoriteFood = element.HTML;
+
+    //fullName.innerHTML = fname + " " + lname;
+    //favoriteFood.innerHTML = fav_food;
+
+    //myForm = fullName+favoriteFood;
+    //fullName = fname + " " +lname;
+    //fav_food = favoriteFood;
+
+
   }
 }
 
@@ -94,10 +105,12 @@ alert('testing123')
 <body>
 
 <h1>My name is <span id="fullName">_______</span>   and I like to eat <span id="favoriteFood">_______</span>.</h1>
+
 <div class="errors" style="display: none;">
-  <h2>Error: Make sure to put in your First Name, Last Name, and Favorite Food!</h2>
+  <h2>Error: Make sure to put in your First Name, Last Name, and Favorite Food!</h2> <!--this needs to have javascript included so the error can appropriately determine which piece of information still needs to be input-->
   <p class="error"></p>
 </div>
+
 <form name="myForm" id="myForm" action="http://google.com" method="GET">
   <label for="fname">First Name</label>
   <input type="text" name="fname" />
