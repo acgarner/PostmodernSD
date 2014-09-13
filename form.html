@@ -13,9 +13,11 @@ function validateForm(event) {
   event.preventDefault();
   var formIsValid = true;
 
+  // Inspect the values of each input element to make sure they are not blank.
+  // If any of the fields are blank, formIsValid should be set to false.
+  
   if(document.getElementsByName("fname") [0].value == "") {
     formIsValid = false;
-    alert('testing')
   }
 
   if(document.getElementsByName("lname") [0].value == "") {
@@ -27,14 +29,11 @@ function validateForm(event) {
   }
   
 
-  // TODO
-  // Inspect the values of each input element to make sure they are not blank.
-  // If any of the fields are blank, formIsValid should be set to false.
   
   // AND the error message node in the dom should describe the errors.
   // eg: First name is blank. Favorite food is blank.
   if (!formIsValid) {
-    alert('You have not input all of the necessary information!')// TODO update the error div and display it.
+    alert('You have not input all of the necessary information!Please make sure you have input your first name, last name, and favorite food!')// TODO update the error div and display it.
   } else {
     // TODO update the h1 span contents. Hint: see element.innerHTML
     // having trouble making sense of this: https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML
@@ -96,7 +95,7 @@ alert('testing123')
 
 <h1>My name is <span id="fullName">_______</span>   and I like to eat <span id="favoriteFood">_______</span>.</h1>
 <div class="errors" style="display: none;">
-  <h2>Error</h2>
+  <h2>Error: Make sure to put in your First Name, Last Name, and Favorite Food!</h2>
   <p class="error"></p>
 </div>
 <form name="myForm" id="myForm" action="http://google.com" method="GET">
