@@ -1,23 +1,36 @@
 <!doctype html>
 <html>
 <head>
-<script type="text/javascript" src="p5/p5.min.js"></script>
-	<title>Garner - CRCP 3320 - Project 2.1</title>
+<script type="text/javascript" src="p5/p5.min.js"></script> 
+<title>Garner - CRCP 3320 - Project 2.1</title>
 
 <body>
-	
+	<!-- how do I make it to where these processing (p5) commands actually work? I imported the p5.min.js, but
+	do I need to create a separate .js file for this javascript? -->
+function setup() {
+  createCanvas(640, 480);
+}
 
+function draw() {
+  if (mouseIsPressed) {
+    fill(0);
+  } else {
+    fill(255);
+  }
+  square(mouseX, mouseY, 40, 40);
+}
+	
+</script>
 
 </head>
-</body>
+<body>
 
-
-  
-
-  <h1>Garner - CRCP 3320 - Project 2.1</h1>
+<!--
+<h1>Garner - CRCP 3320 - Project 2.1</h1>
 	<h2> This website is intended to display a simple demonstration of the power of using a 3rd party Javascript Library! </p>
 	<a </a>
 	<a </a>
+-->
+</body>
 
 </html>
-
