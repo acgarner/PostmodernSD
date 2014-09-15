@@ -41,8 +41,8 @@ function validateForm(event) {
     // TODO update the h1 span contents. Hint: see element.innerHTML
     // having trouble making sense of this: https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML
 
-    document.getElementById("fullName").innerHTML=fname + " " + lname;  // trying to figure out how to update the fullName span
-    document.getElementById("favoriteFood").innerHTML=fav_food;
+  document.getElementById("fullName").innerHTML=fname+ " " +lname;  // trying to figure out how to update the fullName span
+  document.getElementById("favoriteFood").innerHTML=fav_food;
 
 
     //var fullName = element.innerHTML;
@@ -61,12 +61,12 @@ function validateForm(event) {
 
 // "Only once the document is loaded, execute the following function."
 window.onload = function(event) {
-//alert('testing123')
   
   // Get the form element, so we can manipulate it.
   var formNode = document.getElementById("myForm");
  
   formNode.addEventListener("submit", validateForm, false); // When the form is submitted, execute the following function.
+  
   // Notice how the identifier `validateForm` itself is passed, not the
   // return value from calling the `validateForm` function.
   // eg. validateForm vs validateForm().
@@ -112,7 +112,7 @@ window.onload = function(event) {
 <h1>My name is <span id="fullName">_______</span>   and I like to eat <span id="favoriteFood">_______</span>.</h1>
 
 <div class="errors" style="display: none;">
-  <h2>Error: Make sure to put in your <span id="firstName"></span> <span id="lastName"></span> <span id="fave_food"></span></h2> 
+  <h2>Error: Make sure to put in your <span id="firstName"></span> <span id="lastName"></span> <span id="fave_food"></span></h2> <!--How do I deactivate the div class?-->
   <p class="error"></p>
 </div>
 
