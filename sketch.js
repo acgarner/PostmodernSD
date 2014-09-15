@@ -4,9 +4,9 @@ function setup() {
 
 function draw() {
   if (mouseIsPressed) {
-    fill(0);
+    fill(250);
   } else {
-    fill(255);
+    fill(0);
   }
   square(mouseX, mouseY, 40, 40);
 }
