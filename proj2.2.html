@@ -8,8 +8,19 @@
 <body>
 	<!-- how do I make it to where these processing (p5) commands actually work? I imported the p5.min.js, but
 	do I need to create a separate .js file for this javascript? -->
+<script>
+	function setup() {
+  createCanvas(640, 480);
+}
 
-	
+function draw() {
+  if (mouseIsPressed) {
+    fill(250);
+  } else {
+    fill(0);
+  }
+  rect(mouseX, mouseY, 40, 40);
+}
 </script>
 
 </head>
