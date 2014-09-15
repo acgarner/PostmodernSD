@@ -18,26 +18,31 @@ function validateForm(event) {
   
   if(document.getElementsByName("fname") [0].value == "") {
     formIsValid = false;
+    document.getElementById("firstName").innerHTML=" First Name";
+    //something here to change the error span?
   }
 
   if(document.getElementsByName("lname") [0].value == "") {
     formIsValid = false;
+    document.getElementById("lastName").innerHTML=" Last Name";
   }
 
   if(document.getElementsByName("fav_food") [0].value == "") {
     formIsValid = false;
+    document.getElementById("fave_food").innerHTML=" Favorite Food";
   }
   
   
   // AND the error message node in the dom should describe the errors.
   // eg: First name is blank. Favorite food is blank.
   if (!formIsValid) {
-    alert('You have not input all of the necessary information!Please make sure you have input your first name, last name, and favorite food!')// TODO update the error div and display it.
+    alert('You have not input all of the necessary information! Please make sure you have input your first name, last name, and favorite food!')// TODO update the error div and display it.
   } else {
     // TODO update the h1 span contents. Hint: see element.innerHTML
     // having trouble making sense of this: https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML
 
     document.getElementById("fullName").innerHTML=fname + " " + lname;  // trying to figure out how to update the fullName span
+    document.getElementById("favoriteFood").innerHTML=fav_food;
 
 
     //var fullName = element.innerHTML;
@@ -56,7 +61,7 @@ function validateForm(event) {
 
 // "Only once the document is loaded, execute the following function."
 window.onload = function(event) {
-alert('testing123')
+//alert('testing123')
   
   // Get the form element, so we can manipulate it.
   var formNode = document.getElementById("myForm");
@@ -107,7 +112,7 @@ alert('testing123')
 <h1>My name is <span id="fullName">_______</span>   and I like to eat <span id="favoriteFood">_______</span>.</h1>
 
 <div class="errors" style="display: none;">
-  <h2>Error: Make sure to put in your First Name, Last Name, and Favorite Food!</h2> <!--this needs to have javascript included so the error can appropriately determine which piece of information still needs to be input-->
+  <h2>Error: Make sure to put in your <span id="firstName"></span> <span id="lastName"></span> <span id="fave_food"></span></h2> 
   <p class="error"></p>
 </div>
 
