@@ -8,8 +8,6 @@
 function validateForm(event) {
   alert('Form is being submitted. Delete this line from the js.');
   
-  document.getElementsByClassName("errors") [0].style.display = "";
-  
   event.preventDefault(); // don't submit the form, because we're going to work with data on the client only.
   var formIsValid = true;
 
@@ -18,7 +16,7 @@ function validateForm(event) {
   
   if(document.getElementsByName("fname") [0].value == "") {
     formIsValid = false;
-    document.getElementById("firstName").innerHTML=" First Name";
+    document.getElementById("firstName").innerHTML="Please enter your First Name.";
     //something here to change the error span?
   }
 
@@ -36,13 +34,21 @@ function validateForm(event) {
   // AND the error message node in the dom should describe the errors.
   // eg: First name is blank. Favorite food is blank.
   if (!formIsValid) {
+
+    document.getElementsByClassName("errors") [0].style.display = "";
+  
     alert('You have not input all of the necessary information! Please make sure you have input your first name, last name, and favorite food!')// TODO update the error div and display it.
   } else {
     // TODO update the h1 span contents. Hint: see element.innerHTML
     // having trouble making sense of this: https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML
+    alert("form is valid is working");
+    var fname = document.getElementsByName("fname")[0].value;
+    var lname = document.getElementsByName("lname")[0].value;
+    var fav_food = document.getElementsByName("fav_food")[0].value;
 
-  document.getElementById("fullName").innerHTML=fname+ " " +lname;  // trying to figure out how to update the fullName span
-  document.getElementById("favoriteFood").innerHTML=fav_food;
+
+    document.getElementById("fullName").innerHTML = fname + " " +lname;  // trying to figure out how to update the fullName span
+    document.getElementById("favoriteFood").innerHTML=fav_food;
 
 
     //var fullName = element.innerHTML;
@@ -113,7 +119,7 @@ window.onload = function(event) {
 <h1>My name is <span id="fullName">_______</span>   and I like to eat <span id="favoriteFood">_______</span>.</h1>
 
 <div class="errors" style="display: none;">
-  <h2>Error: Make sure to put in your <span id="firstName"></span> <span id="lastName"></span> <span id="fave_food"></span></h2> <!--How do I deactivate the div class?-->
+  <h2>Error: <span id="firstName"></span> <span id="lastName"></span> <span id="fave_food"></span></h2> <!--How do I deactivate the div class?-->
   <p class="error"></p>
 </div>
 
