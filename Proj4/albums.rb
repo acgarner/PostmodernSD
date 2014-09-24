@@ -1,9 +1,10 @@
 require 'rack'
 
+#form = File.read('form.html')
 
 class HelloWorld
   def call(env)
-    [200, {"Content-Type" => "text/plain"}, ["Hello from Rack! 1"]]
+    [200, {"Content-Type" => "text/plain"}, ["Hello from Rack!"]]
 
   end
 end
