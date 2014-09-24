@@ -1,14 +1,34 @@
 require 'rack'
 
-#form = File.read('form.html')
+class AlbumApp
 
-class HelloWorld
   def call(env)
-    [200, {"Content-Type" => "text/plain"}, ["Hello from Rack!"]]
-
+  	request= Rack::Request.new(env)
+  	case request.path
+  	when "/form" then render_form(request)
+  	when "/list" then render_list(request)
+  	else render_404
   end
 end
 
-Rack::Handler::WEBrick.run HelloWorld.new, :Port => 8080
+	def render_form(request)
+		response= Rack::Response.new
+		File.open("form_top.html", "rb") {|form| response.write(form.read)}
+		(1..100).each {|i| response.write("<option value= \"#{i}\">#{i}</option>\n")}
+		File.open("form_bottom.html", "rb") {|form| response.write(form.read)}
+		response.finish
+	end
 
-#http://www.ruby-doc.org/stdlib-1.9.3/libdoc/webrick/rdoc/WEBrick.html ??
+	def render_list(request)
+		response= Rack::Response.new
+		response.finish
+	end
+
+	def render_404
+		[404, {"Content-Type" => "plain/text"}, ["Nothing here!"]]
+	end
+
+end
+
+Rack::Handler::WEBrick.run AlbumApp.new, :Port => 8080
+

@@ -2,7 +2,7 @@
 
 <?php
 if(isset($_POST['submit'])){
-$widget_info = array("Widget Name", "id");
+
 
 if(empty($errors)) {
 
