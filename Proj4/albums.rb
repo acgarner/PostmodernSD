@@ -20,7 +20,38 @@ end
 	end
 
 	def render_list(request)
+		#initializing variables and functions
+		#@contents = Array.new
 		response= Rack::Response.new
+
+		response.write("Album Titles and Your Selection! \n \n")
+		File.open("top_100_albums.txt", "r").each do |line|
+   			split_line=line.split(",")
+   			response.write(split_line)
+		end		
+		#contents = txtFile.read
+
+		#puts contents 
+		
+		#contents = string.split("\n")
+		#contents.each do |num|
+   		#	puts num
+		#	end		
+
+#http://stackoverflow.com/questions/10490204/capture-dynamic-list-to-an-array-using-ruby
+		#response.write(contents)
+		
+		#logic for array:
+		#for (i=1; i<=101; i++)
+		#	{
+				#print the number associated with the song number
+		#		#print out the song title
+		#	}
+
+		#figure out a way to put the list in to an array, split on the comma? 
+		#then highlight the appropriate line?
+		
+		
 		response.finish
 	end
 
