@@ -2,6 +2,15 @@ require 'rack'
 
 class AlbumApp
 
+
+	#domain object 
+#attr_accessor
+#def initialize(:rank, :title, :year)
+#	@rank
+#	@title
+#	@year
+#end
+
   def call(env)
   	request= Rack::Request.new(env)
   	case request.path
@@ -24,29 +33,29 @@ end
 	def render_list(request)
 		
 		response= Rack::Response.new
-		splitLineArray = Array.new
+		dataArray = Array.new
 
 		File.open("top.html", "rb") {|form| response.write(form.read)}
 		#response.write("Album Titles and Your Selection! \n \n")
 		File.open("top_100_albums.txt", "r").each do |line|
-   			split_line=line.split(",")
-   			splitLineArray.push(split_line)
+   			split_line = line.chomp.split(", ")
+   			dataArray.push(split_line)
+   		#how do I input this string into a 2D array?
+   		#do i need to use a table to display this data (in html)?
    		
-   		response.write(split_line)
 
-   			puts split_line + "\n"
-   			
+		end
+		# TODO: sort an array based on the 
+		response.write("<table border=\"1\">\n")
+		dataArray.each_with_index do |album, i|
+			response.write("\t<tr>\n")
+			response.write("\t\t<td>" + (i + 1).to_s + "</td>\n")
+			response.write("\t\t<td>" + album[0] + "</td>\n")
+			response.write("\t\t<td>" + album[1] + "</td>\n")
+			response.write("\t</tr>\n")
+		end
+		response.write("</table>\n")
 
-		#File.open("list.html", "rb") {|form| response.write(form.read)}
-   			#split_line.each do |split_line|
-   			#response.write(split_line)
-   			#response.write("\n")
-   			#end 
-
-
-   			#http://stackoverflow.com/questions/9752512/ruby-array-to-html-table
-
-		end		
 		File.open("bottom.html", "rb") {|form| response.write(form.read)}
 #http://stackoverflow.com/questions/10490204/capture-dynamic-list-to-an-array-using-ruby
 		#response.write(contents)
