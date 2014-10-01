@@ -45,7 +45,17 @@ end
    		
 
 		end
-		# TODO: sort an array based on the 
+		# TODO: sort an array based on the request parameter called sortBy
+
+		sortBy = request.params["sortBy"]
+
+		if sortBy == "Name"
+			dataArray.sort! { |l, r| l[0] <=> r[0] }
+		elsif sortBy == "Year"
+			dataArray.sort! { |l, r| l[1] <=> r[1] }
+		end
+			
+
 		response.write("<table border=\"1\">\n")
 		dataArray.each_with_index do |album, i|
 			response.write("\t<tr>\n")
