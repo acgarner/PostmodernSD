@@ -16,10 +16,17 @@ class AlbumApp
   	case request.path
   	when "/form" then render_form(request)
   	when "/list" then render_list(request)
+  	when "/list.css" then render_css(request)
   	else render_404
   end
 end
 
+	def render_css(request)
+		response= Rack::Response.new
+		response.write(File.read("list.css"))
+		response.finish
+	end
+	
 	def render_form(request)
 		response= Rack::Response.new
 		File.open("top.html", "rb") {|form| response.write(form.read)}
@@ -36,32 +43,42 @@ end
 		dataArray = Array.new
 
 		File.open("top.html", "rb") {|form| response.write(form.read)}
-		#response.write("Album Titles and Your Selection! \n \n")
+		
 		File.open("top_100_albums.txt", "r").each do |line|
    			split_line = line.chomp.split(", ")
    			dataArray.push(split_line)
-   		#how do I input this string into a 2D array?
-   		#do i need to use a table to display this data (in html)?
-   		
-
 		end
 		# TODO: sort an array based on the request parameter called sortBy
 
 		sortBy = request.params["sortBy"]
+		rank = request.params["selectNumber"].to_i
 
 		if sortBy == "Name"
 			dataArray.sort! { |l, r| l[0] <=> r[0] }
 		elsif sortBy == "Year"
 			dataArray.sort! { |l, r| l[1] <=> r[1] }
 		end
-			
+		
+
 
 		response.write("<table border=\"1\">\n")
 		dataArray.each_with_index do |album, i|
 			response.write("\t<tr>\n")
-			response.write("\t\t<td>" + (i + 1).to_s + "</td>\n")
-			response.write("\t\t<td>" + album[0] + "</td>\n")
-			response.write("\t\t<td>" + album[1] + "</td>\n")
+			counter = i + 1
+
+
+			if counter == rank
+				string = "\t\t<tr class = \"highlight\">"
+				string = string + "\t\t<td>" + counter.to_s + "</td>\n"
+				string = string + "\t\t<td>" + album[0] + "</td>\n"
+				string = string + "\t\t<td>" + album[1] + "</td>\n"
+				response.write(string)
+			else
+
+				response.write("\t\t<td>" + counter.to_s + "</td>\n")
+				response.write("\t\t<td>" + album[0] + "</td>\n")
+				response.write("\t\t<td>" + album[1] + "</td>\n")
+			end
 			response.write("\t</tr>\n")
 		end
 		response.write("</table>\n")
