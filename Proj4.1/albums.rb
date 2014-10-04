@@ -1,16 +1,14 @@
 require 'rack'
 
-
-	#domain object 
-#attr_accessor
-#def initialize(:rank, :title, :year)
-#	@rank
-#	@title
-#	@year
-#end
+class	#domain object 
+attr_accessor
+def initialize(:rank, :title, :year)
+	@rank = rank
+	@title = title
+	@year = year
+end
 
 class AlbumApp
-
 
 
   def call(env)
@@ -31,11 +29,8 @@ end
 	
 	def render_form(request)
 		response= Rack::Response.new
-		File.open("top.html", "rb") {|form| response.write(form.read)}
-		File.open("form_top.html", "rb") {|form| response.write(form.read)}
-		(1..100).each {|i| response.write("<option value= \"#{i}\">#{i}</option>\n")}
-		File.open("form_bottom.html", "rb") {|form| response.write(form.read)}
-		File.open("bottom.html", "rb") {|form| response.write(form.read)}
+		response.write(ERB.new(File.read("form.html.erb")).result(binding))
+		#File.open("form.html.erb","rb") {|form| response.write(form.read)}
 		response.finish
 	end
 
@@ -43,6 +38,14 @@ end
 		
 		response= Rack::Response.new
 		dataArray = Array.new
+
+		# use the albums array - sorted
+		# ex of what to put in the erb file:
+		# <% albums.each do |album| %>
+		# <tr>
+		# 	<td><%=album.rank%></td>
+		#  ... etc
+		#
 
 		File.open("top.html", "rb") {|form| response.write(form.read)}
 		
@@ -68,7 +71,7 @@ end
 			response.write("\t<tr>\n")
 			counter = i + 1
 
-
+			#there should be no html in the ruby by the time this is finished 
 			if counter == rank
 				string = "\t\t<tr class = \"highlight\">"
 				string = string + "\t\t<td>" + counter.to_s + "</td>\n"
