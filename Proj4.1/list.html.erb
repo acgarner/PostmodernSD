@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project 4</title>
+<link rel="stylesheet" type="text/css" href="list.css">
+</head>
+<body>
+  <h1>Project 4: Top 100 Songs Ranking System</h1>
+
+<table border="1">
+	<%
+		dataArray.each_with_index do |album, i|
+			 <tr> 
+			counter = i + 1
+	
+			
+			if counter == rank
+				string = "\t\t<tr class = \"highlight\">"
+				string = string + "\t\t<td>" + counter.to_s + "</td>\n"
+				string = string + "\t\t<td> <%= album[1] %> </td>\n"
+				string = string + "\t\t<td> <%= album[2] %> </td>\n"
+				response.write(string)
+	%>
+			<%else%>
+				<td> <%= counter.to_s %> </td>
+				<td> <%= album[1] %> </td>
+				<td> <%=album[2] %> </td>
+			<%end%>
+			</tr>
+		<%end%>
+		
+%>
+</table>
+</body>
+</html>
