@@ -3,11 +3,11 @@ require 'sqlite3'
 
 #class	#domain object 
 #attr_accessor
-#def initialize(:rank, :title, :year)
-#	@rank = rank
-#	@title = title
-#	@year = year
-#end
+def initialize(:rank, :title, :year)
+	@rank = rank
+	@title = title
+	@year = year
+end
 
 class AlbumApp
 
@@ -69,28 +69,16 @@ end
 
 		database.close
 
-
+		response.write(ERB.new(File.read("list.html.erb")).result(binding))
 		#response.write("<table border=\"1\">\n")
-		dataArray.each_with_index do |album, i|
-			response.write("\t<tr>\n")
-			counter = i + 1
+		#dataArray.each_with_index do |album, i|
+		#	response.write("\t<tr>\n")
+		#	counter = i + 1
 
-			#there should be no html in the ruby by the time this is finished 
-			if counter == rank
-				string = "\t\t<tr class = \"highlight\">"
-				string = string + "\t\t<td>" + counter.to_s + "</td>\n"
-				string = string + "\t\t<td> #{album[1]} </td>\n"
-				string = string + "\t\t<td> #{album[2]} </td>\n"
-				response.write(string)
-			else
-
-				response.write("\t\t<td>" + counter.to_s + "</td>\n")
-				response.write("\t\t<td> #{album[1]} </td>\n")
-				response.write("\t\t<td> #{album[2]} </td>\n")
-			end
-			response.write("\t</tr>\n")
-		end
-		response.write("</table>\n")
+			
+	
+		#end
+		
 
 		File.open("bottom.html", "rb") {|form| response.write(form.read)}
 		response.finish
