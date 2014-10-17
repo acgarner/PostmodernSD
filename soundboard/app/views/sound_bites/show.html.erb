@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sound_bite.title %>
+</p>
+
+<p>
+  <strong>Transcript:</strong>
+  <%= @sound_bite.transcript %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @sound_bite.length %>
+</p>
+
+<p>
+  <strong>Audiofile:</strong>
+  <%= @sound_bite.audiofile %>
+</p>
+
+<p>
+  <strong>Recording date:</strong>
+  <%= @sound_bite.recording_date %>
+</p>
+
+<%= link_to 'Edit', edit_sound_bite_path(@sound_bite) %> |
+<%= link_to 'Back', sound_bites_path %>
