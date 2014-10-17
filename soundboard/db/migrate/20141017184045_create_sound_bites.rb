@@ -4,7 +4,7 @@ class CreateSoundBites < ActiveRecord::Migration
       t.string :title
       t.string :transcript
       t.integer :length
-      t.blob :audiofile
+      t.binary :audiofile
       t.datetime :recording_date
 
       t.timestamps
