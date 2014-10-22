@@ -28,15 +28,27 @@
 
 <p>
   <strong>Number of Comments For This Soundbite:</strong>
-  <%= @sound_bite.id %> // currently displaying the id number. How do I get the sum of the number of comments associated with this id?
+  <%= @sound_bite.comments.length %> 
 </p>
 
 <p>
   <strong>Comments:</strong>
-  <%= @sound_bite.comments %> // <-- I'm not sure what this means. 
+  <%= @sound_bite.comments.each do |comment|
+    response.write(comment)
+   end
+   %>
 </p>
 
 
+  <div class="field">
+    <%= f.label :Additional_Comments %><br>
+    <%= f.text_field :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit :Comment %>
+  </div>
+
+<% end %>
 <%= link_to 'Edit', edit_sound_bite_path(@sound_bite) %> |
 <%= link_to 'Back', sound_bites_path %>
 
