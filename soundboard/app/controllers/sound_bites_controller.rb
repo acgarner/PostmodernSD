@@ -69,6 +69,6 @@ class SoundBitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sound_bite_params
-      params.require(:sound_bite).permit(:title, :transcript, :length, :audiofile, :recording_date)
+      params.require(:sound_bite).permit(:title, :transcript, :length, :audiofile, :recording_date, :comment)
     end
 end
